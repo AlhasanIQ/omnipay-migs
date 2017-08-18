@@ -80,6 +80,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('password', $value);
     }
 
+    public function getCurrency()
+    {
+        return $this->getParameter('currency');
+    }
+
+    public function setCurrency($value)
+    {
+        return $this->setParameter('currency', $value);
+    }
+
     protected function getBaseData()
     {
         $data = array();
@@ -89,7 +99,11 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['vpc_Command']    = $this->action;
         $data['vpc_Amount']      = $this->getAmountInteger();
         $data['vpc_MerchTxnRef'] = $this->getTransactionId();
-        
+
+        if ($this->action == 'pay') {
+            $data['vpc_Currency'] = $this->getCurrency() != null ? $this->getCurrency() : 'USD' ;
+        }
+
         if ($this->action != 'refund') {
             $data['vpc_Locale']      = $this->getLocaleCode() != null ? $this->getLocaleCode() : 'en';
             $data['vpc_OrderInfo']   = $this->getDescription();
