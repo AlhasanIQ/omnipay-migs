@@ -99,6 +99,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         $data['vpc_Command']    = $this->action;
         $data['vpc_Amount']      = $this->getAmountInteger();
         $data['vpc_MerchTxnRef'] = $this->getTransactionId();
+        $data['vpc_Currency'] = $this->getCurrency() != null ? $this->getCurrency() : 'USD' ;
 
         if ($this->action == 'pay') {
             $data['vpc_Currency'] = $this->getCurrency() != null ? $this->getCurrency() : 'USD' ;
