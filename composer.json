@@ -1,5 +1,5 @@
 {
-    "name": "AlhasanIQ/omnipay-migs",
+    "name": "omnipay/migs",
     "type": "library",
     "description": "MIGS driver for the Omnipay payment processing library",
     "keywords": [
@@ -34,7 +34,7 @@
     },
     "extra": {
         "branch-alias": {
-            "master": "master"
+            "dev-master": "2.0.x-dev"
         }
     }
 }
