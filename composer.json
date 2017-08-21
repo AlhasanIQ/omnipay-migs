@@ -31,5 +31,11 @@
     },
     "require-dev": {
         "omnipay/tests": "~2.0"
+    },
+    "extra": {
+        "branch-alias": {
+            "master": "master"
+        }
     }
+    
 }
